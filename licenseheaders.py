@@ -62,7 +62,7 @@ def update_c_style_comments(extensions):
 # for each processing type, the detailed settings of how to process files of that type
 TYPE_SETTINGS = {
     # All the languages with C style comments:
-    "c": update_c_style_comments([".c", ".cc", ".h"]),
+    "c": update_c_style_comments([".c", ".cc", ".h", ".dts", ".overlay"]),
     "cpp": update_c_style_comments([".cpp", ".hpp", ".cxx", ".hxx", ".ixx"]),
     "csharp": update_c_style_comments([".cs", ".csx"]),
     "d": update_c_style_comments([".d"]),
@@ -150,7 +150,7 @@ TYPE_SETTINGS = {
         "headerLineSuffix": None
     },
     "cmake": {
-        "extensions": [],
+        "extensions": [".cmake"],
         "filenames": ["CMakeLists.txt"],
         "keepFirst": None,
         "blockCommentStartPattern": re.compile(r'^\s*#\[\['),
@@ -249,6 +249,19 @@ TYPE_SETTINGS = {
     },
     "yaml": {
         "extensions": [".yaml", ".yml"],
+        "keepFirst": None,
+        "blockCommentStartPattern": None,
+        "blockCommentEndPattern": None,
+        "lineCommentStartPattern": re.compile(r'^\s*#'),
+        "lineCommentEndPattern": None,
+        "headerStartLine": "##\n",
+        "headerEndLine": "##\n",
+        "headerLinePrefix": "## ",
+        "headerLineSuffix": None
+    },
+    "kconfig": {
+        "extensions": [".conf"],
+        "filenames": ["Kconfig", "Kconfig.board", "Kconfig.defconfig", "Kconfig.intel"],
         "keepFirst": None,
         "blockCommentStartPattern": None,
         "blockCommentEndPattern": None,
